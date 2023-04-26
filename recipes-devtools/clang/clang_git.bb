@@ -208,6 +208,10 @@ DEPENDS:append:class-target = " clang-cross-${TARGET_ARCH} python3 compiler-rt l
 RRECOMMENDS:${PN} = "binutils"
 RRECOMMENDS:${PN}:append:class-target = " libcxx-dev"
 
+PATH_PADDING = ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\
+"
+
 # patch out build host paths for reproducibility
 do_compile:prepend:class-target() {
     sed -i -e "s,${STAGING_DIR_NATIVE},,g" \
